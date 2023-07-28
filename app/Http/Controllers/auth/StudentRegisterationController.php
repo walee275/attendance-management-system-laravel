@@ -90,26 +90,17 @@ class StudentRegisterationController extends Controller
         // return "hello user";
 
         $is_user_created = User::create($data);
-        $is_user_created = $is_user_created->createToken('userToken')->accessToken;
+        // $is_user_created = $is_user_created->createToken('userToken')->accessToken;
 
         if ($is_user_created) {
+            $is_user_created->assignRole('student');
             $file = $request['picture'];
 
             if ($file) {
                 $is_file_uploaded = $file->move(public_path('student_uploads'), $file_name);
             }
-
-            $data = [
-                'user_id' => $is_user_created->id,
-            ];
-
-            $is_student_created = Student::create($data);
-
-            if ($is_student_created) {
                 return back()->with('success', 'student has registered successfully');
-            } else {
-                return back()->with('error', 'student has failed to register!');
-            }
+
         } else {
             return back()->with('error', 'user has failed to create');
         }

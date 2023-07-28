@@ -42,11 +42,24 @@
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                 Dashboard
             </a>
-
-            {{-- <a class="nav-link text-dark" href="{{ route('student.attendance') }}">
+            <a class="nav-link text-white" href="{{ route('student.attendances') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                Attendance
-            </a> --}}
+                See Attendace
+            </a>
+            <a class="nav-link text-white" href="{{ route('student.attendance.create',Auth::user()) }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Mark Attendace
+            </a>
+            <a class="nav-link text-white" href="{{ route('student.leave.request.create',Auth::user()) }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Request For Leave
+            </a>
+            <a class="nav-link text-white" href="{{ route('student.leave.requests.index',Auth::user()) }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                Request Submitted
+            </a>
+
+
 
         </div>
     </div>

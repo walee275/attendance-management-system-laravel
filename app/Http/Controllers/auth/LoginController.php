@@ -22,10 +22,10 @@ class LoginController extends Controller
             // $token = $user->createToken('userToken')->accessToken;
             // dd($token->token);
 
-            if ($user->hasRole('super_admin')) {
+            if (Auth::user()->hasRole('super_admin')) {
                 return redirect()->route('admin.dashboard');
 
-            }   elseif ($user->hasRole('student')) {
+            }   elseif (Auth::user()->hasRole('student')) {
                 return redirect()->route('student.dashboard');
             } else {
                 return redirect()->route('login')->with('error', 'Invalid Combination');

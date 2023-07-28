@@ -31,7 +31,7 @@
                 <div class="row">
                     @include('partials.alerts')
                 </div>
-                <div class="row">
+                {{-- <div class="row">
                     <a href="{{ route('student.attendances') }}" class="btn btn-dark mb-3">See Attendace </a>
                     <a href="{{ route('student.attendance.create', Auth::user()) }}" class="btn btn-primary mb-3">Mark Attendace
                     </a>
@@ -39,7 +39,7 @@
                         Leave</a>
                     <a href="{{ route('student.leave.requests.index', Auth::user()) }}" class="btn btn-success mb-3">Requests
                         Submitted</a>
-                </div>
+                </div> --}}
             </div>
         </main>
     @endsection
